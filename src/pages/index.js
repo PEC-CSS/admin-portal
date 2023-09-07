@@ -1,8 +1,13 @@
+import Head from 'next/head'
 import Image from 'next/image'
 
 
 export default function Home() {
   return (
+    <div>
+    <Head>
+      <title>Login | ACM at PEC</title>
+    </Head>
     <div className='flex flex-col'>
 
       <div className='flex flex-row  items-center'>
@@ -28,6 +33,7 @@ export default function Home() {
         </div>
       </div>
 
+    </div>
     </div>
   )
 }
