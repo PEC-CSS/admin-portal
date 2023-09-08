@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import SearchBarWithDropdown from '../../components/SearchBarWithDropdown'
+import {useRef} from "react"
 
 export default function LandingPage () {
   return (
@@ -9,27 +10,22 @@ export default function LandingPage () {
         <title>PEC ACM</title>
       </Head>
       <div className='flex flex-col'>
-        <div className='flex flex-row  items-center'>
+        <div className='flex flex-row items-center h-24'>
           <Image
             src='/assets/acm.png'
-            width={100}
-            height={100}
+            width={90}
+            height={90}
             className='ml-20 mt-5'
           />
-          <div className=' flex w-full flex-row justify-center mr-20'>
-            <h1 className='text-blue-600 text-4xl font-bold'>
-              Welcome to Admin Dashboard
-            </h1>
+          <div className=' flex w-full flex-row justify-end'>
+            <div className='w-2/5 mr-12 absolute'>
+              <SearchBarWithDropdown />
+            </div>
           </div>
         </div>
-        <hr className='mt-5 border-blue-600 border-2' />
+        <hr className='mt-10 border-blue-600 border-2' />
 
-
-        <div className='mt-10 flex flex-col items-center'>
-          <div className='w-1/4'>
-          <SearchBarWithDropdown/>
-          </div>
-        </div>
+        <div className='mt-10 flex flex-col items-center'></div>
       </div>
     </div>
   )
