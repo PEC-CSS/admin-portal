@@ -8,7 +8,6 @@ const SearchBarWithDropdown = () => {
   const handleInputChange = e => {
     const value = e.target.value
     setSearchTerm(value)
-    console.log(searchTerm)
     if (value.length > 0) {
       setDropdownOpen(true)
     } else {
@@ -16,15 +15,20 @@ const SearchBarWithDropdown = () => {
     }
   }
 
-  const handleSelectOption = option => {
-    setSearchTerm(option)
-    setDropdownOpen(false) // Close the dropdown when an option is selected
+  // const handleSelectOption = option => {
+  //   setSearchTerm(option)
+  //   setDropdownOpen(false) // Close the dropdown when an option is selected
+  // }
+
+  const openDropDown = () => {
+    setDropdownOpen(true) // Toggle the dropdown open/closed
   }
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen) // Toggle the dropdown open/closed
+  const closeDropDown = () => {
+    setDropdownOpen(false) // Toggle the dropdown open/closed
   }
 
+  
   return (
     <div >
       <div className='flex flex-row border-2'>
@@ -33,7 +37,8 @@ const SearchBarWithDropdown = () => {
           placeholder='Search...'
           value={searchTerm}
           onChange={handleInputChange}
-          onFocus={toggleDropdown} // Show the dropdown when input is focused
+          onFocus={openDropDown} // Show the dropdown when input is focused
+          onBlur={closeDropDown}
           className='border-none outline-none w-full'
         />
         <svg
@@ -43,7 +48,9 @@ const SearchBarWithDropdown = () => {
           stroke-width='2.0'
           stroke='currentColor'
           width={25}
-          onClick={toggleDropdown}
+          onClick={()=>{
+            setDropdownOpen(!isDropdownOpen)
+          }}
         >
           <path
             stroke-linecap='round'
@@ -53,12 +60,12 @@ const SearchBarWithDropdown = () => {
         </svg>
       </div>
       {isDropdownOpen && (
-        <ul className='cursor-pointer left-0 w-full mt-2'>
+        <ul className='left-0 w-full mt-2'>
           {options.map(option => (
             <li
               key={option}
-              className='py-2 border rounded border-blue-600'
-              onClick={() => handleSelectOption(option)}
+              className='cursor-pointer py-2 border-solid border-2 border-black rounded'
+              // onClick={()=>handleSelectOption(option)}
             >
               {option}
             </li>
