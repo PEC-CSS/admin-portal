@@ -1,9 +1,9 @@
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import SearchBarWithDropdown from '../../components/SearchBarWithDropdown'
+import SearchBarWithDropdown from './SearchBarWithDropdown'
 import {useRef} from "react"
-
-export default function LandingPage () {
+const Landing = () => {
   return (
     <div>
       <Head>
@@ -30,3 +30,4 @@ export default function LandingPage () {
     </div>
   )
 }
+export default Landing
