@@ -1,31 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 
 const SearchBarWithDropdown = () => {
-  const [searchTerm, setSearchTerm] = useState('') // Value that is being searched
-  const [isDropdownOpen, setDropdownOpen] = useState(false)
-  const options = ['SID', 'Email', 'Option 3', 'Option 4']
+  const [searchTerm, setSearchTerm] = useState(''); // Value that is being searched
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const options = ['SID', 'Email', 'Option 3', 'Option 4'];
+  const dropdownRef = useRef(null);
 
-  const handleInputChange = e => {
-    const value = e.target.value
-    setSearchTerm(value)
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+  };
 
-  }
-
-  const handleSelectOption = option => {
-    setSearchTerm(option)
-    setDropdownOpen(false) // Close the dropdown when an option is selected
-  }
+  const handleSelectOption = (option) => {
+    setSearchTerm(option);
+    setDropdownOpen(false); // Close the dropdown when an option is selected
+  };
 
   const openDropDown = () => {
-    setDropdownOpen(true) // Toggle the dropdown open/closed
-  }
+    setDropdownOpen(!isDropdownOpen); // Toggle the dropdown open/closed
+  };
 
   const closeDropDown = () => {
-    setDropdownOpen(false) // Toggle the dropdown open/closed
-  }
+    setDropdownOpen(false); // Toggle the dropdown open/closed
+  };
+
+  // Event listener to close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropDown();
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on component unmount
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className='border-1 border-black rounded'>
+    <div className='border-1 border-black rounded' ref={dropdownRef}>
       <div className='flex flex-row border-2 border-black rounded'>
         <div className='border-1 w-full justify-end'>
           <input
@@ -46,7 +62,7 @@ const SearchBarWithDropdown = () => {
             stroke='currentColor'
             width={35}
             onClick={() => {
-              setDropdownOpen(!isDropdownOpen)
+              setDropdownOpen(!isDropdownOpen);
             }}
           >
             <path
@@ -58,12 +74,12 @@ const SearchBarWithDropdown = () => {
         </div>
       </div>
       {isDropdownOpen && (
-        <ul className='left-0 w-full mt-2 bg-white'>
-          {options.map(option => (
+        <ul className='left-0 w-full mt-2 bg-slate-100'>
+          {options.map((option) => (
             <li
               key={option}
-              className='py-2 px-2 border-solid border-2 border-black rounded text-sm'
-              onClick={() => handleSelectOption(option)}
+              className='cursor-pointer py-2 px-2 border-solid border-2 border-black rounded text-sm w-full hover:bg-slate-300'
+              onMouseDown={() => handleSelectOption(option)}
             >
               {option}
             </li>
@@ -71,7 +87,10 @@ const SearchBarWithDropdown = () => {
         </ul>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SearchBarWithDropdown
+export default SearchBarWithDropdown;
+
+
+
