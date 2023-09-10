@@ -1,18 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { useEffect, useState} from 'react'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-library.add(faEye, faEyeSlash)
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from 'react'
-import { useLocalStorage } from "@uidotdev/usehooks";
 import { Common } from '@/constants/common';
 import { parseCookies, setCookie } from 'nookies'
 import { Login } from '../components/Login'
-import Landing from '@/components/Landing'
-
-
+import {Landing} from '../components/Landing'
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 
 export default function Home(props) {
@@ -20,6 +10,8 @@ export default function Home(props) {
   return (
     <div>
     {props.token?(<Landing/>):(<Login/>)}
+
+
       
     </div>
   )

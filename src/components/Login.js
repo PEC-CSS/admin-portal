@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 library.add(faEye, faEyeSlash)
@@ -8,12 +8,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from 'next/router'
 import { parseCookies, setCookie } from 'nookies'
 import { Common } from '@/constants/common'
+// import {useLocalStorage} from '@uidotdev/usehooks'
+import {useLocalStorage} from '../useLocalStorage';
 
 export const Login = () => {
+  const router=useRouter();
+
     const[isVisible,setVisible]=useState(false);
     const[user,setUser]=useState("");
     const[pwd,setPwd]=useState("");
-    const router=useRouter();
     const [_, setAuthorisation] = useLocalStorage(Common.AUTHORIZATION, null);
     const handleClick = async(e)=>{
       e.preventDefault();

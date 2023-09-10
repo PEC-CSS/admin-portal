@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import SearchBarWithDropdown from './SearchBarWithDropdown'
 import { useRef, useState , useEffect} from 'react'
-const Landing = () => {
+export const Landing = () => {
   const [isExpanded, setExpanded] = useState(false);
   const divRef = useRef(null);
 
@@ -58,4 +58,4 @@ const Landing = () => {
     </div>
   )
 }
-export default Landing
+
