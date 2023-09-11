@@ -7,8 +7,8 @@ const SearchBarWithDropdown = () => {
   const dropdownRef = useRef(null);
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value);
+    const val = e.target.value;
+    setSearchTerm(val);
   };
 
   const handleSelectOption = (option) => {
