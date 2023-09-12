@@ -10,6 +10,13 @@ function search() {
     // Add more students as needed
   ];
 
+  const events = [
+    { eventName: 'Workshop 1', date: '2023-09-15', description: 'Learn React' },
+    { eventName: 'Seminar', date: '2023-09-20', description: 'Web Development Trends' },
+    { eventName: 'Workshop 2', date: '2023-09-25', description: 'GraphQL Basics' },
+    // Add more events as needed
+  ];
+
   return (
     <div>
       <Head>
@@ -42,6 +49,32 @@ function search() {
                     <td className='border px-6 py-3'>{student.name}</td>
                     <td className='border px-6 py-3'>{student.rollNumber}</td>
                     <td className='border px-6 py-3'>{student.subGroup}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className='w-full mt-6'>
+          <h2 className='text-2xl font-semibold text-center mb-4'>Event Details</h2>
+          <div className='mx-auto w-2/3 bg-white rounded-lg shadow-lg overflow-hidden'>
+            <table className='w-full'>
+              <thead>
+                <tr className='bg-blue-600 text-white'>
+                  <th className='px-6 py-3 text-left'>Event Name</th>
+                  <th className='px-6 py-3 text-left'>Date</th>
+                  <th className='px-6 py-3 text-left'>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {events.map((event, index) => (
+                  <tr
+                    key={index}
+                    className={index % 2 === 0 ? 'bg-gray-100 hover:bg-blue-200' : 'bg-white hover:bg-blue-200'}
+                  >
+                    <td className='border px-6 py-3'>{event.eventName}</td>
+                    <td className='border px-6 py-3'>{event.date}</td>
+                    <td className='border px-6 py-3'>{event.description}</td>
                   </tr>
                 ))}
               </tbody>
