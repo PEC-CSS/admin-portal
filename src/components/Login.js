@@ -58,7 +58,7 @@ export const Login = () => {
   </Head>
  <div className='flex flex-col'>
 
- <div className='flex flex-row  items-center'>
+      <div className='flex flex-row  items-center'>
       <div className='flex flex-col items-center justify-center ml-20'>
       <Image src="/assets/acm.png" width={100} height={100} className='mt-5'/>
       <h1 className='text-center font-extrabold text-blue-600 text-lg'>pecacm</h1>
