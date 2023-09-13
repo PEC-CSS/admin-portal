@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Head from 'next/head'
+import { Navbar } from './Navbar'
 
 export const Student = () => {
   const events = [
@@ -22,24 +23,15 @@ export const Student = () => {
         <title>PEC ACM | Member Details</title> 
     </Head>
     <div className='flex flex-col'>
-    <div className='flex flex-row  items-center'>
-    <div className='flex flex-col items-center justify-center ml-20'>
-    <Image src="/assets/acm.png" width={100} height={100} className='mt-5'/>
-    <h1 className='text-center font-extrabold text-blue-600 text-lg'>pecacm</h1>
-    </div>
-    <div className=' flex w-full flex-row justify-center mr-20'>
-      <h1 className='text-blue-600 text-4xl font-bold'>PEC-ACM Admin Portal</h1>
-    </div>
-  </div>
-  <hr className='mt-5 border-blue-600 border-2'/>
+    <Navbar/>
   
   
-  <div className='flex flex-col items-center mt-5  w-full'>
+  <div className='flex flex-col items-center mt-5 w-full'>
   <h1 className='text-center text-blue-600 text-5xl font-bold'>Student Detail</h1>
-      <div className='flex flex-row gap-6 m-10 ml-20'>
+      <div className='flex flex-row gap-9 m-10 ml-40 max-sm:mx-10 max-sm:px-5'>
       
-      <Image src='/assets/acm.png' width={150} height={150} className='hover:outline hover:outline-2 hover:outline-blue-600 rounded-full'/>
-        <div className='flex flex-col pl-15'>
+      <Image src='/assets/acm.png' width={150} height={150} className='outline outline-2 outline-blue-600 rounded-full'/>
+        <div className='flex flex-col pl-15 justify-around'>
         <h1 className='text-blue-600 text-xl font-bold '>Ujjawal Gupta</h1>
         <h1 className='text-blue-600 text-xl font-bold '>21103079</h1>
         <h1 className='text-blue-600 text-xl font-bold '>Computer Science and Engineering</h1>
@@ -47,7 +39,7 @@ export const Student = () => {
         </div>
       </div>
       <h1 className='text-center text-blue-600 text-5xl font-bold m-10'>Events Conducted</h1>
-      <div className='mx-auto w-2/3 bg-white rounded-lg shadow-lg overflow-hidden'>
+      <div className='mx-auto w-2/3 bg-white rounded-lg shadow-lg overflow-hidden max-sm:w-4/5'>
             <table className='w-full'>
               <thead>
                 <tr className='bg-blue-600 text-white'>
@@ -72,7 +64,7 @@ export const Student = () => {
           </div>
 
           <h1 className='text-center text-blue-600 text-5xl font-bold m-10'>Events Participated</h1>
-      <div className='mx-auto w-2/3 bg-white rounded-lg shadow-lg overflow-hidden mb-10'>
+      <div className='mx-auto w-2/3 bg-white rounded-lg shadow-lg overflow-hidden mb-10 max-sm:w-fit max-sm:mx-10'>
             <table className='w-full'>
               <thead>
                 <tr className='bg-blue-600 text-white'>

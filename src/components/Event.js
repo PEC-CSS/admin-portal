@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Head from 'next/head'
+import { Navbar } from './Navbar'
 
 export const Event = () => {
   const event = {
@@ -20,25 +21,7 @@ export const Event = () => {
         <title>PEC ACM | Event Details</title>
       </Head>
       <div className='flex flex-col'>
-        <div className='flex flex-row  items-center'>
-          <div className='flex flex-col items-center justify-center ml-20'>
-            <Image
-              src='/assets/acm.png'
-              width={100}
-              height={100}
-              className='mt-5'
-            />
-            <h1 className='text-center font-extrabold text-blue-600 text-lg'>
-              pecacm
-            </h1>
-          </div>
-          <div className=' flex w-full flex-row justify-center mr-20'>
-            <h1 className='text-blue-600 text-4xl font-bold'>
-              PEC-ACM Admin Portal
-            </h1>
-          </div>
-        </div>
-        <hr className='mt-5 border-blue-600 border-2' />
+        <Navbar/>
 
         <div className='flex flex-col items-center mt-5  w-full'>
           <h1 className='text-center text-blue-600 text-5xl font-bold'>

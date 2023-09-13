@@ -10,6 +10,7 @@ import { parseCookies, setCookie } from 'nookies'
 import { Common } from '@/constants/common'
 // import {useLocalStorage} from '@uidotdev/usehooks'
 import {useLocalStorage} from '../useLocalStorage';
+import { Navbar } from './Navbar'
 
 export const Login = () => {
   const router=useRouter();
@@ -58,21 +59,12 @@ export const Login = () => {
   </Head>
  <div className='flex flex-col'>
 
-      <div className='flex flex-row  items-center'>
-      <div className='flex flex-col items-center justify-center ml-20'>
-      <Image src="/assets/acm.png" width={100} height={100} className='mt-5'/>
-      <h1 className='text-center font-extrabold text-blue-600 text-lg'>pecacm</h1>
-      </div>
-      <div className=' flex w-full flex-row justify-center mr-20'>
-        <h1 className='text-blue-600 text-4xl font-bold'>Welcome to Admin Dashboard</h1>
-      </div>
-    </div>
-    <hr className='mt-5 border-blue-600 border-2'/>
+      <Navbar/>
     </div>
 
-    <div className='mt-10 flex flex-col items-center'>
+    <div className='mt-10 flex flex-col items-center mb-10'>
       <h1 className='text-4xl  font-bold text-center'>Login</h1>
-      <div className='w-1/4'>
+      <div className='w-1/4 max-sm:w-3/4 max-md:w-1/2'>
         <div className='flex flex-col mt-10'>
           <label className='mb-5 text-lg font-bold'>Username:</label>
           <input type='text' onChange={(e)=>{setUser(e.target.value)}} placeholder='Enter Username' className='rounded pl-1 pr-10 py-2 outline outline-black focus:outline focus:outline-blue-600 outline-2'/>
