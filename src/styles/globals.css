@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .acm-button {
+        @apply bg-[#0075FF] border-none rounded-lg text-white font-bold px-4 py-2 hover:shadow-lg;
+    }
+}

@@ -1,10 +1,13 @@
-import { Navbar } from "@/components/Navbar";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import { useSession } from "next-auth/react";
-import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import CustomTextField from "@/components/common/CustomTextField";
+import { IconButton, InputAdornment } from "@mui/material";
+import { login } from "@/repository/auth";
+import getServerCookieData from "@/lib/getServerCookieData";
 
 function Login() {
     const [formValues, setFormValues] = useState({
@@ -26,7 +29,7 @@ function Login() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        if (session) router.push("/dashboard");
+        if (session) router.push("/admin");
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [session]);
 
@@ -69,7 +72,7 @@ function Login() {
             );
         }
         setLoading(false);
-        const redirectPath = cookies.get("redirectPath") || "/dashboard";
+        const redirectPath = cookies.get("redirectPath") || "/admin";
         cookies.remove("redirectPath");
         router.push(redirectPath);
     };
@@ -81,57 +84,78 @@ function Login() {
             <Head>
                 <title>Login | ACM at PEC</title>
             </Head>
-            <div className="flex flex-col">
-                <Navbar />
-            </div>
 
             <div className="mt-10 flex flex-col items-center mb-10">
                 <h1 className="text-4xl  font-bold text-center">Login</h1>
-                <div className="w-1/4 max-sm:w-3/4 max-md:w-1/2">
+                <form className="w-1/4 max-sm:w-3/4 max-md:w-1/2" onSubmit={handleSubmit}>
                     <div className="flex flex-col mt-10">
-                        <label className="mb-5 text-lg font-bold">
-                            Username:
-                        </label>
-                        <input
-                            type="text"
+                        <CustomTextField
+                            name="email"
+                            type="email"
+                            label="email@name.com"
+                            variant="filled"
                             onChange={handleChange}
-                            placeholder="Enter Username"
-                            className="rounded pl-1 pr-10 py-2 outline outline-black focus:outline focus:outline-blue-600 outline-2"
+                            value={formValues.email}
+                            fullWidth={true}
+                            required={true}
                         />
                     </div>
                     <div className="flex flex-col mt-5 mb-5">
-                        <label className="mb-5 font-bold text-lg">
-                            Password:
-                        </label>
-                        <div className="relative flex flex-row items-center justify-end">
-                            <input
-                                type={isVisible ? "text" : "password"}
-                                onChange={handleChange}
-                                placeholder="Enter Password"
-                                className="w-full rounded pr-10 pl-1 py-2 outline outline-black focus:outline focus:outline-blue-600 outline-2"
-                            />
-
-                            <span
-                                className="absolute px-2 bg-white"
-                                onClick={() => {
-                                    setIsVisible(!isVisible);
-                                }}
-                            >
-                                {isVisible ? <IoMdEyeOff /> : <IoMdEye />}
-                            </span>
-                        </div>
+                        <CustomTextField
+                            name="password"
+                            label="Password"
+                            variant="filled"
+                            type={isVisible ? "text" : "password"}
+                            onChange={handleChange}
+                            value={formValues.password}
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={() =>
+                                                setIsVisible(!isVisible)
+                                            }
+                                        >
+                                            {isVisible ? (
+                                                <AiFillEye />
+                                            ) : (
+                                                <AiFillEyeInvisible />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            }}
+                            fullWidth={true}
+                            required={true}
+                        />
                     </div>
                     <button
-                        onClick={handleSubmit}
+                        type="submit"
                         disabled={loading}
-                        className="bg-blue-600 hover:bg-white hover:text-black hover:outline-2 hover:outline hover:outline-black text-white font-bold py-2 px-4 rounded"
+                        className="acm-button"
                     >
                         {!loading ? "Login" : "Loading..."}
                     </button>
-                </div>
+                </form>
             </div>
         </div>
     );
 }
 
 export default Login;
+
+
+export async function getServerSideProps(context) {
+    const { data } = getServerCookieData(context);
+    if (data != null) {
+        return {
+            redirect: {
+                permanent: false,
+                destination: "/admin",
+            },
+        };
+    }
+    return {
+        props: {},
+    };
+}
