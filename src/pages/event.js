@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import {Event} from '../components/Event'
+import { Event } from '../components/Event'
 
 
-export default function event(){
-    return(
+export default function event() {
+    return (
         <div>
-        <Event/>
+            <Event />
         </div>
     )
 }
