@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import { Student } from '../components/Student'
+import StudentInfo from '../components/StudentInfo'
 
 
 export default function student() {
     return (
         <div>
-            <Student />
+            <StudentInfo />
         </div>
     )
 }
