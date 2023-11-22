@@ -1,9 +1,9 @@
-import { Landing } from "../components/Landing";
+import React from 'react'
 
-export default function Home() {
-    return (
-        <div>
-            <Landing />
-        </div>
-    );
+function Index() {
+  return (
+    <div>PECACM Admin Portal</div>
+  )
 }
+
+export default Index
