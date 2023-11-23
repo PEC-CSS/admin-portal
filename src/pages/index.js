@@ -1,8 +1,9 @@
+import Landing from '@/components/Landing'
 import React from 'react'
 
 function Index() {
   return (
-    <div>PECACM Admin Portal</div>
+    <Landing />
   )
 }
 
