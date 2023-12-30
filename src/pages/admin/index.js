@@ -36,8 +36,8 @@ function AdminDashboard() {
             </div>
 
 
-            <div class='h-screen bg-blue-300'>
-                <div class='flex justify-center bg-amber-200'>
+            <div class='h-screen'>
+                <div class='flex justify-center'>
                     <SearchBarWithDropdown isUserSearch={isUserSearch}/>
                     <button onClick={() => setIsUserSearch((prevState) => !prevState)}
                             className='mb-auto p-2 bg-blue-900 border-2 border-blue-900 ml-2 rounded-md text-white min-w-[10vw]'>
