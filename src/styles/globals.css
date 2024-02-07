@@ -4,6 +4,15 @@
 
 @layer components {
     .acm-button {
-        @apply bg-[#0075FF] border-none rounded-lg text-white font-bold px-4 py-2 hover:shadow-lg;
+        @apply 
+            bg-[#0075FF] border-[1px] border-[#0075FF] 
+            rounded-[10px] 
+            px-[30px] py-[8px]
+            text-white text-[20px]
+            outline-none font-[600]
+            hover:cursor-pointer
+            hover:bg-white
+            hover:text-[#0075FF]
+            transition duration-500;
     }
 }

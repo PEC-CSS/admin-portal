@@ -1,8 +1,53 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import { IoMdSearch } from "react-icons/io";
+import { MdKeyboardCommandKey } from "react-icons/md";
+import SearchBarDialog from './common/SearchBarDialog';
 
 function SearchBarWithDropdown() {
+  const [open, setOpen] = useState(false);
+  const openModal = () => { setOpen(true); }
+  const closeModal = () => { setOpen(false); }
+
+  const handleKeyPress = useCallback((event) => {
+    if (event.ctrlKey === true && event.key === 'k') {
+      event.preventDefault();
+      openModal();
+    }
+    console.log(event.key)
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [handleKeyPress]);
+
   return (
-    <div>SearchBarWithDropdown</div>
+    <>
+      <button onClick={openModal}>
+        <div className={
+          `w-[350px] h-[40px] bg-[#EBE9F1] p-[6px]
+        border-[1px] border-[#0070c9] 
+        hover:shadow-[0px_0px_0px_3px_rgba(131,192,253,.5)]
+        hover:bg-slate-300
+        rounded-[4px]
+        flex text-sm
+        justify-between`}
+        >
+          <div className='flex justify-center align-middle'>
+            <IoMdSearch className='self-center mr-2 mb-[4px] ml-1 text-[16px] font-extrabold' />
+            <p>Quick Search ...</p>
+          </div>
+          <p className='mr-2 flex'>
+            <b>Ctrl</b> &nbsp;K /&nbsp;
+            <MdKeyboardCommandKey className='self-center mb-[4px] text-[16px]' /> &nbsp;K
+          </p>
+        </div>
+      </button>
+
+      <SearchBarDialog open={open} onClose={closeModal} />
+    </>
   )
 }
 
