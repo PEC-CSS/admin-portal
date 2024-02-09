@@ -8,6 +8,8 @@ import CustomTextField from "@/components/common/CustomTextField";
 import { IconButton, InputAdornment } from "@mui/material";
 import { login } from "@/repository/auth";
 import getServerCookieData from "@/lib/getServerCookieData";
+import Navbar from "@/components/Navbar";
+import SearchBarWithDropdown from "@/components/SearchBarWithDialog";
 
 function Login() {
     const [formValues, setFormValues] = useState({
@@ -84,6 +86,8 @@ function Login() {
             <Head>
                 <title>Login | ACM at PEC</title>
             </Head>
+
+            {/* <Navbar MiddleComponent={<SearchBarWithDropdown />} /> */}
 
             <div className="mt-10 flex flex-col items-center mb-10">
                 <h1 className="text-4xl  font-bold text-center">Login</h1>

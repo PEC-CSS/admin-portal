@@ -47,8 +47,8 @@ function CustomTextField({ name, label, variant, type = 'text', onChange, value,
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
             value={value}
-            fullWidth
-            required
+            fullWidth = {fullWidth}
+            required = {required}
             error={error}
             InputProps={inputProps}
         >
