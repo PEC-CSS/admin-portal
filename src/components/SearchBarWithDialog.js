@@ -3,13 +3,13 @@ import { IoMdSearch } from "react-icons/io";
 import { MdKeyboardCommandKey } from "react-icons/md";
 import SearchBarDialog from './common/SearchBarDialog';
 
-function SearchBarWithDropdown() {
+function SearchBarWithDialog() {
   const [open, setOpen] = useState(false);
   const openModal = () => { setOpen(true); }
   const closeModal = () => { setOpen(false); }
 
   const handleKeyPress = useCallback((event) => {
-    if (event.ctrlKey === true && event.key === 'k') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.key === 'k') {
       event.preventDefault();
       openModal();
     }
@@ -51,4 +51,4 @@ function SearchBarWithDropdown() {
   )
 }
 
-export default SearchBarWithDropdown
+export default SearchBarWithDialog

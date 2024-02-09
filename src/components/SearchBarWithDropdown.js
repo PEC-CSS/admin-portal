@@ -12,7 +12,7 @@ function SearchBarWithDropdown({isUserSearch}) {
     const [showSearchResults, setShowSearchResults] = useState(false)
     const [mousePointer, setMousePointer] = useState(-1)
     const {data: session} = useSession();
-    const token = getCookieData(session).data.token
+    const token = getCookieData(session).data?.token
 
     const searchUsersApi = useCallback((pattern) => {
         getMatchingUsersApi(pattern, token)

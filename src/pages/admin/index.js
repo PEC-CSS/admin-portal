@@ -5,6 +5,10 @@ import {useSession} from "next-auth/react";
 import {useRouter} from "next/router";
 import {useState} from "react";
 import SearchBarWithDropdown from "@/components/SearchBarWithDropdown";
+import Navbar from "@/components/Navbar";
+import SearchBarDialog from "@/components/common/SearchBarDialog";
+import SearchBarWithDialog from "@/components/SearchBarWithDialog";
+import Head from "next/head";
 
 function AdminDashboard() {
     const [showLogoutDialog, setShowLogoutDialog] = useState(false);
@@ -15,7 +19,10 @@ function AdminDashboard() {
 
     return (
         <div>
-            <div class='flex items-center justify-between p-2'>
+            <Head>
+                <title>Admin Portal | PECACM</title>
+            </Head>
+            {/* <div class='flex items-center justify-between p-2'>
                 AdminDashboard{" "}
                 {showLogoutDialog && <DialogPopup
                     errorDescription="Are you sure you want to logout?"
@@ -46,7 +53,10 @@ function AdminDashboard() {
                         }
                     </button>
                 </div>
-            </div>
+            </div> */}
+
+            <Navbar MiddleComponent={<SearchBarWithDialog />} />
+
         </div>
     );
 }
