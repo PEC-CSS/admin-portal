@@ -87,7 +87,7 @@ function Login() {
                 <title>Login | ACM at PEC</title>
             </Head>
 
-            <Navbar MiddleComponent={<SearchBarWithDropdown />} />
+            {/* <Navbar MiddleComponent={<SearchBarWithDropdown />} /> */}
 
             <div className="mt-10 flex flex-col items-center mb-10">
                 <h1 className="text-4xl  font-bold text-center">Login</h1>

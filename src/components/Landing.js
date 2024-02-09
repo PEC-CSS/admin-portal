@@ -1,6 +1,7 @@
 import React from "react";
 import HeroBox from "./Landing/HeroBox";
 import Link from "next/link";
+import Head from "next/head";
 
 function Landing() {
     const heroTitle = "ACM Admin Portal"
@@ -8,6 +9,9 @@ function Landing() {
 
     return (
         <div className="grid lg:grid-cols-2 grid-cols-1 h-[100vh]">
+            <Head>
+                <title>Admin Portal | PECACM</title>
+            </Head>
             <div className="bg-[#d9d9d9] h-[100vh] justify-center items-center hidden lg:grid">
                 <img src="/assets/acm.png" height={500} width={500} />
             </div>
