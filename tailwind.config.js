@@ -9,6 +9,19 @@ module.exports = {
     extend: {
       backgroundImage: {
       },
+      keyframes: {
+        customBounce: {
+          '0%': {
+            transform: 'translateY(-15%)',
+          }, 
+          '50%': {
+            transform: 'translateY(0);',
+          },
+          '100%': {
+            transform: 'translateY(-15%)',
+          },
+        }
+      }
     },
   },
   plugins: [],

@@ -7,7 +7,7 @@ import {useState} from "react";
 import SearchBarWithDropdown from "@/components/SearchBarWithDropdown";
 import Navbar from "@/components/Navbar";
 import SearchBarDialog from "@/components/common/SearchBarDialog";
-import SearchBarWithDialog from "@/components/SearchBarWithDialog";
+import SearchBarWithDialog from "@/components/common/SearchBarWithDialog";
 import Head from "next/head";
 
 function AdminDashboard() {

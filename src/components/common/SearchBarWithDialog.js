@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { IoMdSearch } from "react-icons/io";
 import { MdKeyboardCommandKey } from "react-icons/md";
-import SearchBarDialog from './common/SearchBarDialog';
+import SearchBarDialog from './SearchBarDialog';
 
 function SearchBarWithDialog() {
   const [open, setOpen] = useState(false);

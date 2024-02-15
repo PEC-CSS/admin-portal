@@ -7,7 +7,7 @@
         @apply 
             bg-[#0075FF] border-[1px] border-[#0075FF] 
             rounded-[10px] 
-            px-[30px] py-[8px]
+            px-[26px] py-[8px]
             text-white text-[20px]
             outline-none font-[600]
             hover:cursor-pointer

@@ -9,7 +9,7 @@ import { IconButton, InputAdornment } from "@mui/material";
 import { login } from "@/repository/auth";
 import getServerCookieData from "@/lib/getServerCookieData";
 import Navbar from "@/components/Navbar";
-import SearchBarWithDropdown from "@/components/SearchBarWithDialog";
+import SearchBarWithDropdown from "@/components/common/SearchBarWithDialog";
 
 function Login() {
     const [formValues, setFormValues] = useState({
@@ -47,6 +47,7 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log("hello")
         setLoading(true);
 
         if (!formValues.email.endsWith("@pec.edu.in")) {
