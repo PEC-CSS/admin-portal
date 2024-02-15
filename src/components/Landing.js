@@ -3,20 +3,22 @@ import HeroBox from "./Landing/HeroBox";
 import Link from "next/link";
 import Head from "next/head";
 import LandingCard from "./Landing/LandingCard";
-import SearchBarWithDialog from "./common/SearchBarWithDialog";
+import { Snowfall } from "react-snowfall";
 
 function Landing() {
-  const heroTitle = "ACM Admin Portal";
-  const heroSubtitle =
-    "Unleash efficiency, foster excellence, and streamline administrative tasks effortlessly";
-
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 h-[100vh]">
+    <div className="grid lg:grid-cols-2 grid-cols-1 h-[100vh] bg-[#edf3ff]">
+      <Snowfall
+        color="#9ab4d1"
+        wind={[0, 0]}
+        snowflakeCount={20}
+        speed={[0.1, 2.5]}
+        radius={[1, 5]}
+      />
       <Head>
         <title>Admin Portal | PECACM</title>
       </Head>
-      <div className="min-h-[100vh] min-w-[100vw] bg-[#edf3ff] flex flex-col justify-center items-center">
-
+      <div className="min-w-[100vw] flex flex-col justify-center items-center">
         <img
           src="/assets/acm.png"
           height={200}
