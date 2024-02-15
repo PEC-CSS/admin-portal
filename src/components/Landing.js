@@ -3,18 +3,19 @@ import HeroBox from "./Landing/HeroBox";
 import Link from "next/link";
 import Head from "next/head";
 import LandingCard from "./Landing/LandingCard";
-import { Snowfall } from "react-snowfall";
+// import { Snowfall } from "react-snowfall";
 
 function Landing() {
   return (
     <div className="grid lg:grid-cols-2 grid-cols-1 h-[100vh] bg-[#edf3ff]">
-      <Snowfall
+      {/* <Snowfall
         color="#9ab4d1"
         wind={[0, 0]}
         snowflakeCount={20}
         speed={[0.1, 2.5]}
         radius={[1, 5]}
-      />
+      /> */}
+
       <Head>
         <title>Admin Portal | PECACM</title>
       </Head>
