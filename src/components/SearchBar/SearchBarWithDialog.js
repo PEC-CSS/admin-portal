@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { IoMdSearch } from "react-icons/io";
+import { IoSearch } from "react-icons/io5";
 import { MdKeyboardCommandKey } from "react-icons/md";
 import SearchBarDialog from './SearchBarDialog';
 
@@ -13,7 +13,6 @@ function SearchBarWithDialog() {
       event.preventDefault();
       openModal();
     }
-    console.log(event.key)
   }, []);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ function SearchBarWithDialog() {
         justify-between`}
         >
           <div className='flex justify-center align-middle'>
-            <IoMdSearch className='self-center mr-2 mb-[4px] ml-1 text-[16px] font-extrabold' />
+            <IoSearch className='self-center mr-2 mb-[4px] ml-1 text-[16px] font-extrabold' />
             <p>Quick Search ...</p>
           </div>
           <p className='mr-2 flex'>
@@ -45,7 +44,7 @@ function SearchBarWithDialog() {
           </p>
         </div>
       </button>
-
+      
       <SearchBarDialog open={open} onClose={closeModal} />
     </>
   )
