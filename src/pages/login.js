@@ -47,7 +47,6 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("hello")
         setLoading(true);
 
         if (!formValues.email.endsWith("@pec.edu.in")) {

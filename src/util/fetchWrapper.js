@@ -64,7 +64,7 @@ async function handleResponse(response) {
 export function fetchUrl(url) {
     const backendUrl = process.env.BACKEND;
     const root =
-        process.env.NODE_ENV === "development"
+        process.env.NODE_ENV === "development" && false
             ? "http://localhost:8080"
             : backendUrl;
     return `${root}/${url}`;
