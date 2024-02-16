@@ -32,7 +32,7 @@ function Landing() {
         </div>
 
         <Link href={"/login"} aria-label="Login">
-          <button className="acm-button px-[40px]">Log In</button>
+          <button className="acm-button px-[40px]">Continue to Log in</button>
         </Link>
       </div>
     </div>
@@ -43,18 +43,18 @@ export default Landing;
 
 const LANDINGCARDS_DATA = [
   {
-    imgPath: "/assets/acm.png",
+    imgPath: "/assets/meet_our_team.png",
     title: "Meet our team",
     link: "https://www.pecacm.com/team",
   },
   {
     imgPath: "/assets/acm.png",
-    title: "Meet our team",
-    link: "https://www.pecacm.com/team",
+    title: "Official Website",
+    link: "https://www.pecacm.com",
   },
   {
-    imgPath: "/assets/acm.png",
-    title: "Meet our team",
-    link: "https://www.pecacm.com/team",
+    imgPath: "/assets/leaderboard.png",
+    title: "Leaderboard",
+    link: "https://www.pecacm.com/dashboard/leaderboard",
   },
 ];
