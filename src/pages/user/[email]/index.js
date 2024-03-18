@@ -1,11 +1,12 @@
-import { fetchWrapper } from '@/util/fetchWrapper';
-import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
+import { fetchWrapper } from "@/util/fetchWrapper";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
 import { TableCell, TableRow } from "@mui/material";
-import getCookieData from '@/lib/getCookieData';
-import { useSession } from 'next-auth/react';
-import { getMatchingUsersApi } from '@/repository/searchUsers/getMatchingUsersApi';
+import getCookieData from "@/lib/getCookieData";
+import { useSession } from "next-auth/react";
+import { getMatchingUsersApi } from "@/repository/searchUsers/getMatchingUsersApi";
+import Head from "next/head";
 
 function getDateString(startDateString) {
   return new Date(startDateString).toLocaleDateString("en-GB");
@@ -17,9 +18,9 @@ function getEventDataFromJson(items) {
   items.forEach((item, index) => {
     const currentRow = [
       String(index + 1),
-      item['name'],
-      item['role'],
-      getDateString(item["timestamp"])
+      item["name"],
+      item["role"],
+      getDateString(item["timestamp"]),
     ];
     tableData.push(currentRow);
   });
@@ -36,16 +37,17 @@ function getEventDataFromJson(items) {
     }
   });
 
-  return tableData;ƒ
+  return tableData;
+  ƒ;
 }
 
 function Index({ email }) {
-  const {data: session} = useSession();
+  const { data: session } = useSession();
   const token = getCookieData(session).data?.token;
   const itemsPerPage = 100;
-  const columns = ["S. No.", "Event Name", "Capacity", "Event Date"];
+  const columns = ["S.No.", "Event Name", "Capacity", "Date"];
 
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const [userData, setUserData] = useState([]);
   const [page, setPage] = useState(0);
   const [data, setData] = useState([]);
@@ -56,7 +58,7 @@ function Index({ email }) {
     viewColumns: false,
     download: true,
     downloadOptions: {
-      filename: `${userName}.csv`
+      filename: `${userName}.csv`,
     },
     textLabels: {
       body: {
@@ -68,28 +70,19 @@ function Index({ email }) {
     onChangePage: () => {
       setPage(page + 1);
     },
-    expandableRows: true,
+    expandableRows: false,
     expandableRowsHeader: false,
     isRowExpandable: () => {
-      return true;
+      return false;
     },
     fixedHeader: true,
-    renderExpandableRow: (rowData) => {
-      const colSpan = rowData.length + 1;
-      return (
-        <TableRow>
-          <TableCell colSpan={colSpan}>
-            <b>Description: </b>
-            {eventDesc[rowData[0]]}
-          </TableCell>
-        </TableRow>
-      );
-    },
+    sortThirdClickReset: true,
+    elevation: 0,
   };
 
   useEffect(() => {
     async function getUserData(email, token) {
-      const name = email.substr(0, email.indexOf('.'))
+      const name = email.substr(0, email.indexOf("."));
       const res = await getMatchingUsersApi(name, token);
       setUserData(res);
     }
@@ -102,11 +95,13 @@ function Index({ email }) {
       try {
         fetchWrapper
           .get({
-            url: `v1/user/${encodeURIComponent(email)}/events?offset=${page}&pageSize=${itemsPerPage}`,
-            token: token
+            url: `v1/user/${encodeURIComponent(
+              email
+            )}/events?offset=${page}&pageSize=${itemsPerPage}`,
+            token: token,
           })
           .then((items) => {
-            setUserName(email.substr(0, email.indexOf('.')));
+            setUserName(email.substr(0, email.indexOf(".")));
             setData(getEventDataFromJson(items));
           });
       } catch (err) {
@@ -115,31 +110,65 @@ function Index({ email }) {
     };
 
     fetchData();
-  }, [page, email, session, token])
+  }, [page, email, session, token]);
+
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
 
   return (
-    <div>
-      
-      {columns && (
-        <MUIDataTable
-          title={"Events Information"}
-          data={data}
-          columns={columns}
-          options={options}
-        />
-      )}
+    <div className="py-[20px] px-[5%] font-sans">
+      <Head>
+        <title>User Event Details</title>
+      </Head>
+      <h1 className="underline uppercase text-[20px] font-bold text-center">
+        To whomsoever it may concern
+      </h1>
+      <br />
+      <p>
+        This is to certify that{" "}
+        <span className="underline">{`${userData[0]?.name} ${userData[0]?.sid}`}</span>{" "}
+        has participated in the following events organized by <b>PEC ACM CSS</b>{" "}
+        in college and in <b>PECFEST</b>, in the mentioned capacities:
+      </p>
+      <br />
+      <b>1) 2023 - 2024</b>
+
+      <div className="border-2">
+        {columns && (
+          <MUIDataTable
+            title={"Events Information"}
+            data={data}
+            columns={columns}
+            options={options}
+          />
+        )}
+      </div>
+
+      <p className="my-10">Approved By:</p>
+
+      <div className="flex w-full justify-between my-5">
+        <p>
+          Harshpreet Singh Johar, <br />
+          (Secretary, PEC ACM CSS)
+        </p>
+        <p>
+          Dr. Satnam Kaur, <br />
+          (P/I PEC ACM CSS)ƒ
+        </p>
+      </div>
     </div>
   );
 }
 
-export default Index
+export default Index;
 
 export async function getServerSideProps({ query }) {
   const email = query.email;
 
   return {
-      props: {
-        email: email
-      },
+    props: {
+      email: email,
+    },
   };
 }
