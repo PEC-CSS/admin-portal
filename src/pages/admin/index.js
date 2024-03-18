@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import SearchBarDialog from "@/components/SearchBar/SearchBarDialog";
 import SearchBarWithDialog from "@/components/SearchBar/SearchBarWithDialog";
 import Head from "next/head";
+import EventDataTable from "@/components/common/EventDataTable";
 
 function AdminDashboard() {
     const [showLogoutDialog, setShowLogoutDialog] = useState(false);
@@ -56,6 +57,7 @@ function AdminDashboard() {
             </div> */}
 
             <Navbar MiddleComponent={<SearchBarWithDialog />} />
+            <EventDataTable />
 
         </div>
     );

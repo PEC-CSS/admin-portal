@@ -9,17 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/material": "^5.14.18",
+    "@mui/icons-material": "^5.15.10",
+    "@mui/material": "^5.15.10",
     "@uidotdev/usehooks": "^2.2.0",
     "autoprefixer": "10.4.15",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "heroicons": "^2.0.18",
+    "mui-datatables": "^4.3.0",
     "next": "13.4.19",
     "next-auth": "^4.24.5",
     "nookies": "^2.5.2",
@@ -32,6 +34,7 @@
     "use-debounce": "^10.0.0"
   },
   "devDependencies": {
+    "@types/mui-datatables": "^4.3.12",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4"
   }

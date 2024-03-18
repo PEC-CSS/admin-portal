@@ -25,7 +25,7 @@ function SearchBarDialog({ open, onClose }) {
       PaperProps={{ sx: { borderRadius: "10px" } }}
       onClose={onClose}
     >
-      <div className="max-w-[48rem] w-[100%] h-[100vh] md:h-[80vh] flex flex-col text-[14px] bg-[#edf2f8]">
+      <div className="md:max-w-[48rem] w-[100%] flex flex-col text-[14px] bg-[#edf2f8]">
         <div className="w-[100%] place-self-start border-b-[1px] border-[#0075FF]">
           
           <div className="h-[56px] px-[16px] flex items-center">
@@ -58,7 +58,7 @@ function SearchBarDialog({ open, onClose }) {
           </div>
         </div>
 
-        <div className="px-4 w-[100%] h-[100%] border-b-[1px] border-[#0075FF]">
+        <div className="px-4 w-[100%] h-[100%] border-b-[1px] border-[#0075FF] pb-6">
           <SearchResult title="user data" data={userData} />
           <SearchResult title="events data" data={eventData} />
         </div>
@@ -87,6 +87,14 @@ const userData = [
 ]
 
 const eventData = [
+  {
+    name: "ishwarendra Jha",
+    extraInfo: ["Description about event here cc"]
+  },
+  {
+    name: "CP Tips and Tricks",
+    extraInfo: []
+  },
   {
     name: "ishwarendra Jha",
     extraInfo: ["Description about event here cc"]

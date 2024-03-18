@@ -8,7 +8,7 @@ function SearchResult( { title, data } ) {
   }
 
   return (
-    <>
+    <div className="cursor-pointer">
       <SearchResultTitle title={title ? title : "Information"} />
       {
         data?.map((info, id) => {
@@ -17,7 +17,7 @@ function SearchResult( { title, data } ) {
           )
         })
       }
-    </>
+    </div>
   )
 }
 

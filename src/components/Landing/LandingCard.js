@@ -2,8 +2,8 @@ import React from "react";
 
 function LandingCard({ imgPath, title, link }) {
   return (
-    <a href={link}>
-      <div className="bg-[#f5f9fb] flex justify-center flex-col items-center hover:scale-[1.15] transition duration-500 cursor-pointer h-[130px] w-[131px] mx-2">
+    <a href={link} className="hover:scale-[1.15] transition duration-500 hover:underline">
+      <div className="animate-customBounce bg-[#f5f9fb] flex justify-center flex-col items-center transition duration-500 cursor-pointer h-[130px] w-[131px] mx-2">
         <img
           src={imgPath}
           height={85}
