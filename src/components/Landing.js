@@ -1,5 +1,4 @@
 import React from "react";
-import HeroBox from "./Landing/HeroBox";
 import Link from "next/link";
 import Head from "next/head";
 import LandingCard from "./Landing/LandingCard";

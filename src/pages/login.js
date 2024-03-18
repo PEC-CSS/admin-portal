@@ -9,7 +9,7 @@ import { IconButton, InputAdornment } from "@mui/material";
 import { login } from "@/repository/auth";
 import getServerCookieData from "@/lib/getServerCookieData";
 import Navbar from "@/components/Navbar";
-import SearchBarWithDropdown from "@/components/common/SearchBarWithDialog";
+import SearchBarWithDropdown from "@/components/SearchBar/SearchBarWithDialog";
 
 function Login() {
     const [formValues, setFormValues] = useState({
