@@ -1,8 +1,11 @@
 import React from 'react'
 import SearchResultTitle from './SearchResultTitle'
 import SearchResultItem from './SearchResultItem'
+import { useRouter } from 'next/router'
 
-function SearchResult( { title, data } ) {
+function SearchResult( { title, data, email } ) {
+  const router = useRouter();
+
   if (!data) {
     return <></>
   }
@@ -13,7 +16,7 @@ function SearchResult( { title, data } ) {
       {
         data?.map((info, id) => {
           return (
-            <SearchResultItem key={id} title={info.name} extraInfo={info.extraInfo} />
+            <SearchResultItem key={id} title={info.name} extraInfo={info.extraInfo} onClick={() => router.push(`/user/${info.extraInfo[0]}`)} />
           )
         })
       }
