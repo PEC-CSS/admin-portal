@@ -42,7 +42,7 @@ function SearchBarDialog({ open, onClose }) {
                         response.map((user) => {
                             return {
                                 name: user.name,
-                                extraInfo: [user.email],
+                                extraInfo: [user.email, user.sid],
                             };
                         })
                     );
