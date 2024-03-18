@@ -5,7 +5,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SearchBarWithDialog from "@/components/SearchBar/SearchBarWithDialog";
 import Head from "next/head";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 function AdminDashboard() {
     const [showLogoutDialog, setShowLogoutDialog] = useState(false);
@@ -22,14 +22,24 @@ function AdminDashboard() {
 
             <Navbar MiddleComponent={<SearchBarWithDialog />} />
 
-            <Typography fontFamily={"monospace"} sx={{
-                margin: "10px"
+            <Box display={"flex"} sx={{
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center"
             }}>
-                Welcome to ACM Admin Portal. This is a site under construction.
-            </Typography>
+                <Typography
+                    fontFamily={"serif"}
+                    sx={{
+                        margin: "10px",
+                    }}
+                >
+                    Welcome to ACM Admin Portal. This is a site under
+                    construction.
+                </Typography>
 
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/underwork.jpeg" alt="" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/underwork.jpeg" alt="" className="h-[300px] rounded-sm" />
+            </Box>
         </div>
     );
 }
