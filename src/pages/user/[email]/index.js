@@ -154,7 +154,7 @@ function Index({ email }) {
         </p>
         <p>
           Dr. Satnam Kaur, <br />
-          (P/I PEC ACM CSS)ƒ
+          (P/I PEC ACM CSS)
         </p>
       </div>
     </div>
