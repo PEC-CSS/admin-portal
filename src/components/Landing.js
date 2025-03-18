@@ -44,16 +44,16 @@ const LANDINGCARDS_DATA = [
   {
     imgPath: "/assets/meet_our_team.png",
     title: "Meet our team",
-    link: "https://www.pecacm.com/team",
+    link: "https://www.pecacm.org/team",
   },
   {
     imgPath: "/assets/acm.png",
     title: "Official Website",
-    link: "https://www.pecacm.com",
+    link: "https://www.pecacm.org",
   },
   {
     imgPath: "/assets/leaderboard.png",
     title: "Leaderboard",
-    link: "https://www.pecacm.com/dashboard/leaderboard",
+    link: "https://www.pecacm.org/dashboard/leaderboard",
   },
 ];
