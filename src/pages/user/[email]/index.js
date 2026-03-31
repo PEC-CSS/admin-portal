@@ -132,7 +132,7 @@ function Index({ email }) {
         in college and in <b>PECFEST</b>, in the mentioned capacities:
       </p>
       <br />
-      <b>1) 2024 - 2025</b>
+      <b>1) 2025 - 2026</b>
 
       <div className="border-2">
         {columns && (
@@ -149,8 +149,8 @@ function Index({ email }) {
 
       <div className="flex w-full justify-between my-5">
         <p>
-           Ankur Gupta, <br />
-          (Secretary, PEC ACM CSS)
+           Anubhav Pandey, <br />
+          (Joint Secretary, PEC ACM CSS)
         </p>
         <p>
           Dr. Satnam Kaur, <br />
